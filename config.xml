@@ -5,6 +5,12 @@
         An awesome Asset application.
     </description>
   <author href="http://www.tisco.com" email="natapong@tisco.co.th">natapong</author>
+
+  <platform name="android">
+    <preference name="AndroidLaunchMode" value="singleTop"/>
+    <preference name="android-minSdkVersion" value="15" />
+</platform>
+
   <plugin name="cordova-plugin-device" spec="~1.1.3"/>
   <plugin name="cordova-plugin-console" spec="~1.0.4"/>
   <plugin name="cordova-plugin-whitelist" spec="~1.3.0"/>
