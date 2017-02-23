@@ -1,0 +1,81 @@
+<!--
+  Generated template for the BuyFundConfirm page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ซื้อกองทุน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <h2></h2>
+            <h1>กองทุน 
+            {{fundInfo}}</h1>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>วันที่ทำรายการ</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="currentDate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>บัญชี</ion-label>
+            <ion-select placeholder="Bank Account">
+              <ion-option *ngFor="let account of accounts" value="{{account.name}}">{{account.name}} : {{account.bank}} </ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>จำนวนเงิน</ion-label>
+            <ion-input type="number" placeholder="100000"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear>
+        <ion-icon name="close"></ion-icon>
+        <div>ยกเลิก</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button (click)="presentConfirm()" ion-button icon-left clear>
+        <ion-icon name="checkmark"></ion-icon>
+        <div>ต่อไป</div>
+      </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+</ion-content>
