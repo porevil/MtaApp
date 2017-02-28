@@ -6,24 +6,34 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>ซื้อกองทุน</ion-title>
-  </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
 
- <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl"></ion-searchbar>
- <div *ngIf="searching" class="spinner-container">
-        <ion-spinner></ion-spinner>
-    </div>
+  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl"></ion-searchbar>
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
 
-    <ion-list>
-        <ion-item *ngFor="let fund of funds" (click)="fundselected(fund.title)">
-            {{fund.title}}
-        </ion-item>
-    </ion-list>
+  <ion-list>
+    <!--ion-item-group *ngFor="let group of groupedFunds">
+      <ion-item-divider light>{{group.groupfund}}</ion-item-divider-->
+    <ion-item *ngFor="let fund of funds" (click)="fundselected(fund.title)">
+      {{fund.title}}
+    </ion-item>
+    <!--/ion-item-group-->
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secondary"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="settings"></ion-icon></button>
+      <button ion-fab><ion-icon name="text"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="pulse"></ion-icon></button>
+      <button ion-fab><ion-icon name="leaf"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>

@@ -6,9 +6,6 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>ทำรายการสำเร็จ</ion-title>
-  </ion-navbar>
 
 </ion-header>
 
@@ -22,8 +19,8 @@
         <ion-col>
           <ion-item>
             <h2></h2>
-            <h1>ซื้อกองทุน </h1>
-            <h3>{{fundInfo}}</h3>
+            <h1>กองทุน </h1>
+            <h2>{{fundInfo}}</h2>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -39,7 +36,7 @@
         <ion-col>
           <ion-item>
             <ion-label>วันที่ส่งคำสั่ง</ion-label>
-            <ion-label>01/01/2017</ion-label>
+            <ion-label>{{currentDate | date: 'dd/MM/yyyy'}}</ion-label>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -47,7 +44,7 @@
         <ion-col>
           <ion-item>
             <ion-label>วันที่ทำรายการ</ion-label>
-            <ion-label>01/01/2016</ion-label>
+            <ion-label>{{currentDate | date: 'dd/MM/yyyy'}}</ion-label>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -71,7 +68,8 @@
         <ion-col>
           <ion-item>
             <ion-label>จำนวนเงิน</ion-label>
-            <ion-label>100,000</ion-label>
+            <ion-label>{{price}}</ion-label>
+            <ion-label>บาท</ion-label>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -96,4 +94,17 @@
     </ion-row>
 
   </ion-card>
+
+   <ion-fab right bottom>
+    <button ion-fab color="secondary"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="settings"></ion-icon></button>
+      <button ion-fab><ion-icon name="text"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="pulse"></ion-icon></button>
+      <button ion-fab><ion-icon name="leaf"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  
 </ion-content>

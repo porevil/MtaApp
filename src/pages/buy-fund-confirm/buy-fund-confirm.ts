@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { BuyFundSummaryPage } from '../buy-fund-summary/buy-fund-summary';
 import { Data } from '../../providers/data';
+import { BuyFundPage } from '../buy-fund/buy-fund';
 
 /*
   Generated class for the BuyFundConfirm page.
@@ -17,6 +18,9 @@ export class BuyFundConfirmPage {
   fundInfo: any;
   currentDate: any;
   accounts: any;
+  price: any;
+  displayDate = new Date().toLocaleDateString();
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public dataService: Data) {
     this.fundInfo = this.navParams.get("fund_info");
     this.currentDate = new Date().toISOString();
@@ -28,7 +32,10 @@ export class BuyFundConfirmPage {
     this.accounts = this.dataService.accounts;
  
   }
-
+  presentCancel() {
+    console.log('presentCancel');
+     this.navCtrl.pop
+  }
   presentConfirm() {
     console.log('presentConfirm');
     let alert = this.alertCtrl.create({
@@ -40,6 +47,7 @@ export class BuyFundConfirmPage {
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
+            
           }
         },
         {
@@ -57,7 +65,7 @@ export class BuyFundConfirmPage {
 
   buyFundSummary(){
     console.log('BuyFundSummaryPage');
-    this.navCtrl.push(BuyFundSummaryPage)
+    this.navCtrl.push(BuyFundSummaryPage,{ fund_info: this.fundInfo, price:this.price })
   }
 
 }

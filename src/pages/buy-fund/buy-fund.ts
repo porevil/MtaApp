@@ -17,12 +17,13 @@ import { BuyFundConfirmPage } from '../buy-fund-confirm/buy-fund-confirm';
 })
 export class BuyFundPage {
 
-    searchTerm: string = '';
-    funds: any;
-    searchControl: FormControl;
-    searching: any = false;
+  searchTerm: string = '';
+  funds: any;
+  searchControl: FormControl;
+  searching: any = false;
+  tab1Root: any = BuyFundConfirmPage;;  
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: Data) {
-    
+
     this.searchControl = new FormControl();
 
   }
@@ -30,28 +31,28 @@ export class BuyFundPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad BuyFundPage');
     this.setFilteredItems();
- 
-        this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
-            this.searching = false;
-            this.setFilteredItems();
- 
-        });
+
+    this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+      this.searching = false;
+      this.setFilteredItems();
+
+    });
 
   }
 
-    onSearchInput(){
-        this.searching = true;
-    }
+  onSearchInput() {
+    this.searching = true;
+  }
 
-   setFilteredItems() {
- 
-        this.funds = this.dataService.filterFunds(this.searchTerm);
- 
-    }
+  setFilteredItems() {
 
-    fundselected(fundName){
-      this.navCtrl.push(BuyFundConfirmPage,
-      {fund_info:fundName});
-    }
+    this.funds = this.dataService.filterFunds(this.searchTerm);
+
+  }
+
+  fundselected(fundName) {
+    this.navCtrl.push(BuyFundConfirmPage,
+      { fund_info: fundName });
+  }
 
 }

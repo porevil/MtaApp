@@ -7,6 +7,7 @@ import { BuyFundPage } from '../pages/buy-fund/buy-fund';
 import { BuyFundConfirmPage } from '../pages/buy-fund-confirm/buy-fund-confirm';
 import { BuyFundSummaryPage } from '../pages/buy-fund-summary/buy-fund-summary';
 import { Data } from '../providers/data';
+import { TabPage } from '../pages/tab/tab';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { Data } from '../providers/data';
     LoginPage,
     BuyFundPage,
     BuyFundConfirmPage,
-    BuyFundSummaryPage
+    BuyFundSummaryPage,
+    TabPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -27,7 +29,8 @@ import { Data } from '../providers/data';
     LoginPage,
     BuyFundPage,
     BuyFundConfirmPage,
-    BuyFundSummaryPage
+    BuyFundSummaryPage,
+    TabPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Data]
 })

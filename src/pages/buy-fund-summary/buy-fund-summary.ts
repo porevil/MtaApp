@@ -13,8 +13,14 @@ import { BuyFundPage } from '../buy-fund/buy-fund';
   templateUrl: 'buy-fund-summary.html'
 })
 export class BuyFundSummaryPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) { }
+  fundInfo: any;
+  currentDate: any;
+  price: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.fundInfo = this.navParams.get("fund_info");
+    this.price = this.navParams.get("price");
+     this.currentDate = new Date().toISOString();
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BuyFundSummaryPage');

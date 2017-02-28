@@ -1,7 +1,7 @@
 import { Component, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BuyFundPage } from '../buy-fund/buy-fund';
-
+import { TabPage } from '../tab/tab';
 /*
   Generated class for the LoginPage page.
 
@@ -77,7 +77,7 @@ export class LoginPage {
 
 login(){
 
-  this.navCtrl.push(BuyFundPage);
+  this.navCtrl.push(TabPage);
 
 }
 }
