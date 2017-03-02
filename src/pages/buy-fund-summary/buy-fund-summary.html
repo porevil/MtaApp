@@ -12,7 +12,7 @@
 
 <ion-content padding>
 
-
+<!--progress-bar [progress]="loadProgress"></progress-bar-->
   <ion-card>
     <ion-card-content>
       <ion-row>
@@ -68,7 +68,7 @@
         <ion-col>
           <ion-item>
             <ion-label>จำนวนเงิน</ion-label>
-            <ion-label>{{price}}</ion-label>
+            <ion-label>{{price | numberFormat}}</ion-label> 
             <ion-label>บาท</ion-label>
           </ion-item>
         </ion-col>

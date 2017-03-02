@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { BuyFundSummaryPage } from '../buy-fund-summary/buy-fund-summary';
 import { Data } from '../../providers/data';
 import { BuyFundPage } from '../buy-fund/buy-fund';
+import { FundData } from '../services/fund-data';
 
 /*
   Generated class for the BuyFundConfirm page.
@@ -12,7 +13,8 @@ import { BuyFundPage } from '../buy-fund/buy-fund';
 */
 @Component({
   selector: 'page-buy-fund-confirm',
-  templateUrl: 'buy-fund-confirm.html'
+  templateUrl: 'buy-fund-confirm.html',
+  providers: [FundData]   
 })
 export class BuyFundConfirmPage {
   fundInfo: any;
@@ -21,7 +23,7 @@ export class BuyFundConfirmPage {
   price: any;
   displayDate = new Date().toLocaleDateString();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public dataService: Data) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public dataService: Data, public fundData: FundData) {
     this.fundInfo = this.navParams.get("fund_info");
     this.currentDate = new Date().toISOString();
     console.log('fundInfo' + this.fundInfo + ' this.currentDate ' + this.currentDate);
@@ -65,6 +67,7 @@ export class BuyFundConfirmPage {
 
   buyFundSummary(){
     console.log('BuyFundSummaryPage');
+    this.fundData.setFundInfo(this.fundInfo,10000);
     this.navCtrl.push(BuyFundSummaryPage,{ fund_info: this.fundInfo, price:this.price })
   }
 

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Data } from '../../providers/data';
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import { BuyFundConfirmPage } from '../buy-fund-confirm/buy-fund-confirm';
+import { NewsPage } from '../news/news';
 
 /*
   Generated class for the BuyFund page.
@@ -13,7 +14,8 @@ import { BuyFundConfirmPage } from '../buy-fund-confirm/buy-fund-confirm';
 */
 @Component({
   selector: 'page-buy-fund',
-  templateUrl: 'buy-fund.html'
+  templateUrl: 'buy-fund.html',
+  
 })
 export class BuyFundPage {
 
@@ -55,4 +57,8 @@ export class BuyFundPage {
       { fund_info: fundName });
   }
 
+  toNewsPage(){
+    console.log('toNewsPage');
+    this.navCtrl.push(NewsPage);
+  }
 }
