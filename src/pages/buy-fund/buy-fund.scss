@@ -1,4 +1,22 @@
 page-buy-fund {
+  .blue-theme {
+  h1, h2, h3, h4, h5, h6,
+  .toolbar-title {
+    color: #1565C0;
+  }
+  .toolbar-background {
+    background-color: #BBDEFB;
+  }
+  ion-content {
+    background-color: #2196F3;
+  }
+  ion-list {
+    .item {
+      background-color: darken(#2196F3, 1.5%);
+    }
+  }
+}
+
  .spinner-container {
         width: 100%;
         text-align: center;

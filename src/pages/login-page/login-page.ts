@@ -2,6 +2,8 @@ import { Component, trigger, state, style, transition, animate, keyframes } from
 import { NavController, NavParams } from 'ionic-angular';
 import { BuyFundPage } from '../buy-fund/buy-fund';
 import { TabPage } from '../tab/tab';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+
 /*
   Generated class for the LoginPage page.
 
@@ -64,20 +66,30 @@ import { TabPage } from '../tab/tab';
 
 export class LoginPage {
 
+  myForm: FormGroup;
+  username: FormControl;
+  password: FormControl;
+
   logoState: any = "in";
   cloudState: any = "in";
   loginState: any = "in";
   formState: any = "in";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fb: FormBuilder) {
+
+    this.myForm = fb.group({
+      username: ['', ],
+      password: ['', ],
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-login(){
+  login() {
+    let username = this.myForm.controls['username'].value;
+    this.navCtrl.push(TabPage,{username:username});
 
-  this.navCtrl.push(TabPage);
-
-}
+  }
 }

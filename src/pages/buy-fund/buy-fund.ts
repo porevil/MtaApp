@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import { BuyFundConfirmPage } from '../buy-fund-confirm/buy-fund-confirm';
 import { NewsPage } from '../news/news';
+import { ProfilePage } from '../profile/profile';
 
 /*
   Generated class for the BuyFund page.
@@ -15,7 +16,55 @@ import { NewsPage } from '../news/news';
 @Component({
   selector: 'page-buy-fund',
   templateUrl: 'buy-fund.html',
-  
+  animations: [
+
+    //For the logo
+    trigger('flyInBottomSlow', [
+      state('in', style({
+        transform: 'translate3d(0,0,0)'
+      })),
+      transition('void => *', [
+        style({ transform: 'translate3d(0,2000px,0' }),
+        animate('2000ms ease-in-out')
+      ])
+    ]),
+
+    //For the background detail
+    trigger('flyInBottomFast', [
+      state('in', style({
+        transform: 'translate3d(0,0,0)'
+      })),
+      transition('void => *', [
+        style({ transform: 'translate3d(0,2000px,0)' }),
+        animate('1000ms ease-in-out')
+      ])
+    ]),
+
+    //For the login form
+    trigger('bounceInBottom', [
+      state('in', style({
+        transform: 'translate3d(0,0,0)'
+      })),
+      transition('void => *', [
+        animate('2000ms 200ms ease-in', keyframes([
+          style({ transform: 'translate3d(0,2000px,0)', offset: 0 }),
+          style({ transform: 'translate3d(0,-20px,0)', offset: 0.9 }),
+          style({ transform: 'translate3d(0,0,0)', offset: 1 })
+        ]))
+      ])
+    ]),
+
+    //For login button
+    trigger('fadeIn', [
+      state('in', style({
+        opacity: 1
+      })),
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate('1000ms 2000ms ease-in')
+      ])
+    ])
+  ]
 })
 export class BuyFundPage {
 
@@ -23,9 +72,11 @@ export class BuyFundPage {
   funds: any;
   searchControl: FormControl;
   searching: any = false;
-  tab1Root: any = BuyFundConfirmPage;;  
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: Data) {
+  tab1Root: any = BuyFundConfirmPage;
+  username: string;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: Data) {
+    this.username = this.navParams.get("username");
     this.searchControl = new FormControl();
 
   }
@@ -57,8 +108,13 @@ export class BuyFundPage {
       { fund_info: fundName });
   }
 
-  toNewsPage(){
+  toNewsPage() {
     console.log('toNewsPage');
     this.navCtrl.push(NewsPage);
   }
+  toProfilePage() {
+    console.log('toProfilePage');
+    this.navCtrl.push(ProfilePage);
+  }
+
 }

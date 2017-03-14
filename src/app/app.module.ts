@@ -14,6 +14,8 @@ import {FundData} from '../pages/services/fund-data';
 import { NewsPage } from '../pages/news/news';
 import { News } from '../pages/services/news';
 import { NewsService } from '../providers/news-service';
+import { Storage } from '@ionic/storage'; 
+import { ProfilePage } from '../pages/profile/profile';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { NewsService } from '../providers/news-service';
     TabPage,
     ProgressBarComponent,
     NumberFormat,
-    NewsPage
+    NewsPage,
+    ProfilePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -40,8 +43,9 @@ import { NewsService } from '../providers/news-service';
     BuyFundConfirmPage,
     BuyFundSummaryPage,
     TabPage,
-    NewsPage
+    NewsPage,
+    ProfilePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Data,FundData,News,NewsService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Data,FundData,News,NewsService, Storage]
 })
 export class AppModule {}
